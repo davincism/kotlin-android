@@ -2,6 +2,7 @@ package com.example.mywebbrowser
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.inputmethod.EditorInfo
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -34,4 +35,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        if (webView.canGoBack()) webView.goBack()
+        else super.onBackPressed()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        return super.onCreateOptionsMenu(menu)
+    }
 }
